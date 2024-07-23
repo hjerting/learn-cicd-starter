@@ -1,6 +1,7 @@
 
-[code coverage badge](https://github.com/hjerting/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
+![code coverage badge](https://github.com/hjerting/learn-cicd-starter/actions/workflows/ci.yml/badge.svg)
 
+![skull](image.png)
 
 # learn-cicd-starter (Notely)
 
