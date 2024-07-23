@@ -24,16 +24,16 @@ type apiConfig struct {
 //go:embed static/*
 var staticFiles embed.FS
 
-func main() {
+func main(){
 	err := godotenv.Load(".env")
 	if err != nil {
 		log.Printf("warning: assuming default configuration. .env unreadable: %v", err)
-	}
+}
 
 	port := os.Getenv("PORT")
 	if port == "" {
 		log.Fatal("PORT environment variable is not set")
-	}
+}
 
 	apiCfg := apiConfig{}
 
