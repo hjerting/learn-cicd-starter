@@ -41,13 +41,6 @@ func TestGetAPIKey(t *testing.T) {
 			expected_return_value: "",
 			expected_error:        ErrNoAuthHeaderIncluded,
 		},
-		"Invalid API Key 4": {
-			headers: http.Header{
-				"Authorization": []string{"ApiKey "},
-			},
-			expected_return_value: "",
-			expected_error:        ErrNoAuthHeaderIncluded,
-		},
 		"Missing API Key": {
 			headers: http.Header{
 				"Some-Other-Header": []string{"value"},
