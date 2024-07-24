@@ -21,8 +21,15 @@ jobs:
         with:
           go-version: '1.22'
 
+      - name: Display .env content
+        run: cat .env
+
+      - name: Export environment variables
+        run: |
+          export $(grep -v '^#' .env | xargs)
+
       - name: Build app
-        run: bash scripts/buildprod.sh
+        run: scripts/buildprod.sh
 
       - name: Start app
         run: ./notely
