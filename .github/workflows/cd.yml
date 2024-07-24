@@ -35,4 +35,8 @@ jobs:
         run: scripts/buildprod.sh
 
       - name: Start app
+        timeout-minutes: 1
         run: ./notely
+
+      - name: Check Application Logs
+        run: sleep 30 && tail -n 20 /var/log/notely.log || echo "Log file not found"
