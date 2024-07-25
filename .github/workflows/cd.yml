@@ -21,22 +21,5 @@ jobs:
         with:
           go-version: '1.22'
 
-      - name: Create .env file
-        run: echo "PORT=8080" > .env
-
-      - name: Display .env content
-        run: cat .env
-
-      - name: Export environment variables
-        run: |
-          export $(grep -v '^#' .env | xargs)
-
       - name: Build app
         run: scripts/buildprod.sh
-
-      - name: Start app
-        timeout-minutes: 1
-        run: ./notely
-
-      - name: Check Application Logs
-        run: sleep 30 && tail -n 20 /var/log/notely.log || echo "Log file not found"
