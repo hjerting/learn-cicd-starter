@@ -24,8 +24,11 @@ jobs:
       - name: Build app
         run: scripts/buildprod.sh
 
-jobs:
-  job_id:
+  docker:
+    name: Docker image build
+    runs-on: ubuntu-latest
+    environment: production
+
     steps:
     - id: 'auth'
       uses: 'google-github-actions/auth@v2'
