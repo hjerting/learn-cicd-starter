@@ -11,6 +11,8 @@ jobs:
 
     env:
       DATABASE_URL: ${{ secrets.DATABASE_URL }}
+      GOOSE_DRIVER: turso
+      GOOSE_DBSTRING: ${{ secrets.DATABASE_URL }}
 
     steps:
       - name: Check out code
