@@ -30,21 +30,19 @@ jobs:
     environment: production
 
     steps:
-    - name: Check out code
+      - name: Check out code
         uses: actions/checkout@v4
 
-    - id: 'auth'
-      uses: 'google-github-actions/auth@v2'
-      with:
-        credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+      - id: 'auth'
+        uses: 'google-github-actions/auth@v2'
+        with:
+          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
 
-    - name: 'Set up Cloud SDK'
-      uses: 'google-github-actions/setup-gcloud@v2'
+      - name: 'Set up Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v2'
 
-    - name: 'Use gcloud CLI'
-      run: 'gcloud info'
+      - name: 'Use gcloud CLI'
+        run: 'gcloud info'
 
-    - name: Make and upload docker image
-      run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-430502/notely-ar-repo/notely:latest .
-
-
+      - name: Make and upload docker image
+        run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-430502/notely-ar-repo/notely:latest .
