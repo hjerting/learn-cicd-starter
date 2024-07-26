@@ -24,15 +24,6 @@ jobs:
       - name: Build app
         run: scripts/buildprod.sh
 
-  docker:
-    name: Docker image build
-    runs-on: ubuntu-latest
-    environment: production
-
-    steps:
-      - name: Check out code
-        uses: actions/checkout@v4
-
       - id: 'auth'
         uses: 'google-github-actions/auth@v2'
         with:
